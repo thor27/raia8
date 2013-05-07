@@ -37,6 +37,8 @@ gem 'jquery-rails'
 # To use debugger
 gem 'debugger'
 
+gem "twitter-bootstrap-rails"
+
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
 end
