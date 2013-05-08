@@ -3,4 +3,8 @@ class Student < ActiveRecord::Base
   validates_presence_of :name
   validates_format_of :email, with: /.*@.*/
   validates_inclusion_of :state, in: ['active','blocked']
+  
+  def active?
+    self[:state] == 'active'
+  end
 end

@@ -1,31 +1,42 @@
-<h1>Listing students</h1>
+<div class="page-header">
+  <h1>Students</h1>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Date of birth</th>
-    <th>Address</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @students.each do |student| %>
-  <tr>
-    <td><%= student.name %></td>
-    <td><%= student.phone %></td>
-    <td><%= student.email %></td>
-    <td><%= student.date_of_birth %></td>
-    <td><%= student.address %></td>
-    <td><%= link_to 'Show', student %></td>
-    <td><%= link_to 'Edit', edit_student_path(student) %></td>
-    <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Date of birth</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= link_to student.name, student %></td>
+        <td><%= student.phone %></td>
+        <td><%= mail_to student.email %></td>
+        <td><%= student.date_of_birth %></td>
+        <td><%= student.address %></td>
+        
+        <td>
+          <%= link_to edit_student_path(student), class: 'btn btn-primary', alt: 'Edit', title: 'Edit' do %>
+            <i class="icon-edit"></i>
+          <% end %>
+          
+          <%= link_to student, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', alt: 'Remove', title: 'Remove' do %>
+            <i class="icon-trash"></i>
+          <% end %>
+          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Student', new_student_path %>
+<%= link_to 'New Student', new_student_path, class: 'btn' %>

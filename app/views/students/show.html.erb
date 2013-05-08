@@ -1,33 +1,25 @@
-<p>
-  <b>Name:</b>
-  <%= @student.name %>
-</p>
+<div class="page-header">
+  <h1><%= @student.name %></h1>
+</div>
 
-<p>
-  <b>Phone:</b>
-  <%= @student.phone %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Phone:</dt>
+  <dd><%= @student.phone %></dd>
 
-<p>
-  <b>Email:</b>
-  <%= @student.email %>
-</p>
+  <dt>Email:</dt>
+  <dd><%= mail_to @student.email %></dd>
+  
+  <dt>Date of birth:</dt>
+  <dd><%= @student.date_of_birth %></dd>
+  
+  <dt>Address:</dt>
+  <dd><%= @student.address %></dd>
+  
+  <dt>State:</dt>
+  <dd><%= @student.state %></dd>
+</dl>
 
-<p>
-  <b>Date of birth:</b>
-  <%= @student.date_of_birth %>
-</p>
+<%= link_to 'Back', students_path, class: 'btn' %>
+<%= link_to 'Edit', edit_student_path(@student), class: 'btn' %>
+<%= block_link @student %>
 
-<p>
-  <b>Address:</b>
-  <%= @student.address %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @student.state %>
-</p>
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= block_link @student %> |
-<%= link_to 'Back', students_path %>
