@@ -26,11 +26,26 @@
                 <%= link_to 'Students', students_path %>
               </li>
             </ul>
+            <ul class="nav pull-right">
+              <% if user_signed_in? %>
+                <li>
+                  <p class="navbar-text"><%= current_user.email %></p>
+                </li>
+                <li class="divider-vertical"></li>
+                <li>
+                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete  %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to 'Sign in', new_user_session_path %>
+                </li>
+              <% end %>
+            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container" id="content">
       
       <% flash.each do |name, msg| %>
         <div class="alert alert-<%= name == :notice ? "success" : "error" %>">

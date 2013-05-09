@@ -1,7 +1,6 @@
 Raia8::Application.routes.draw do
 
-  
-
+  devise_for :users
 
   resources :students do
     put 'set_state', on: :member

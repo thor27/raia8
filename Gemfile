@@ -41,6 +41,7 @@ gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem 'responders'
 gem 'kaminari'
+gem 'devise'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
