@@ -1,0 +1,23 @@
+<p>
+  <b>Value:</b>
+  <%= @payment.value %>
+</p>
+
+<p>
+  <b>Date of payment:</b>
+  <%= @payment.date_of_payment %>
+</p>
+
+<p>
+  <b>Reference month:</b>
+  <%= @payment.reference_month %>
+</p>
+
+<p>
+  <b>Reference year:</b>
+  <%= @payment.reference_year %>
+</p>
+
+
+<%= link_to 'Edit', edit_student_payment_path(@student, @payment) %> |
+<%= link_to 'Back', student_payments_path(@student) %>

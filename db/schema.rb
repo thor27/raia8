@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508175156) do
+ActiveRecord::Schema.define(:version => 20130509135825) do
+
+  create_table "payments", :force => true do |t|
+    t.integer  "student_id"
+    t.float    "value"
+    t.date     "date_of_payment"
+    t.integer  "reference_month"
+    t.integer  "reference_year"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "payments", ["student_id"], :name => "index_payments_on_student_id"
 
   create_table "students", :force => true do |t|
     t.string   "name"

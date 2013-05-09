@@ -1,7 +1,11 @@
 Raia8::Application.routes.draw do
 
+  
+
+
   resources :students do
     put 'set_state', on: :member
+    resources :payments
   end
 
   # The priority is based upon order of creation:

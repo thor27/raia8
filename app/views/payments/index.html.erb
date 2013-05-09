@@ -1,0 +1,29 @@
+<h1>Listing payments of <%= @student.name %></h1>
+
+<table>
+  <tr>
+    <th>Value</th>
+    <th>Date of payment</th>
+    <th>Reference month</th>
+    <th>Reference year</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @payments.each do |payment| %>
+  <tr>
+    <td><%= payment.value %></td>
+    <td><%= payment.date_of_payment %></td>
+    <td><%= payment.reference_month %></td>
+    <td><%= payment.reference_year %></td>
+    <td><%= link_to 'Show', [@student, payment] %></td>
+    <td><%= link_to 'Edit', edit_student_payment_path(@student, payment) %></td>
+    <td><%= link_to 'Destroy', [@student, payment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Payment', new_student_payment_path(@student) %>

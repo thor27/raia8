@@ -1,0 +1,14 @@
+<%= simple_form_for([@student,@payment]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :value %>
+    <%= f.input :date_of_payment %>
+    <%= f.input :reference_month %>
+    <%= f.input :reference_year %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
