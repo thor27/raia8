@@ -2,6 +2,8 @@
   <h1>Students</h1>
 </div>
 
+<%= render 'students/search' %>
+
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
@@ -37,6 +39,6 @@
   </tbody>
 </table>
 
-<br />
+<%= paginate @students %>
 
 <%= link_to 'New Student', new_student_path, class: 'btn' %>

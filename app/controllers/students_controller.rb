@@ -1,6 +1,11 @@
 class StudentsController < ApplicationController
   def index
-    @students = Student.all
+    if params[:query].present?
+      @students = Student.where('name LIKE ?', "%#{params[:query]}%")
+    else
+      @students = Student
+    end
+    @students = @students.page(params[:page]).per(4)
     respond_with(@students)
   end
 

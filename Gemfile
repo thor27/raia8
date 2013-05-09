@@ -40,6 +40,7 @@ gem 'debugger'
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem 'responders'
+gem 'kaminari'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
